@@ -3,9 +3,11 @@ import styled from "styled-components";
 import BubbleChartRoundedIcon from "@material-ui/icons/BubbleChartRounded";
 import NotificationsRoundedIcon from "@material-ui/icons/NotificationsRounded";
 import Search from "./Search";
+import { auth } from "../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 function HeaderTop() {
-
+  const [user] = useAuthState(auth);
   return (
     <Container>
       <Header>
@@ -18,7 +20,7 @@ function HeaderTop() {
           <IconButton>
             <NotificationsRoundedIcon />
           </IconButton>
-          <UserAvatar />
+          <UserAvatar src={user.photoURL} onClick={() => auth.signOut()} />
         </IconsContainer>
       </Header>
     </Container>

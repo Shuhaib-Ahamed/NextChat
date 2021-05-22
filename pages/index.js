@@ -4,7 +4,7 @@ import ChatSidebar from "../companants/ChatSidebar";
 import styled from "styled-components";
 import Leftbar from "../companants/Leftbar";
 import HeaderTop from "../companants/HeaderTop";
-import Chat from "../companants/Chat";
+import ChatContainer from "../companants/ChatContainer";
 
 export default function Home() {
   return (
@@ -21,7 +21,7 @@ export default function Home() {
             <HeaderTop />
             <FlexContainer>
               <ChatSidebar />
-              <Chat />
+              <ChatContainer />
             </FlexContainer>
           </MainContainer>
         </Glass>
@@ -68,3 +68,5 @@ const Glass = styled.div`
   background-color: transparent;
   backdrop-filter: blur(150px);
 `;
+
+export {Container, MainContainer, FlexContainer,Glass};

@@ -1,8 +1,8 @@
 const Animation = () => (
   <img
-    src={require("../Assets/Next.gif")}
+    src={require("../assets/Next.gif")}
     alt=""
-    style={{ width: "40%", position:"absolute", top: "10%", left: "5%"}}
+    style={{ width: "auto", position:"absolute", top: "15%", left: "5%"}}
   />
 );
 
