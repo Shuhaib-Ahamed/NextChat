@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import Head from "next/head";
-import Animation from "../companants/Animation";
+import Animation from "../components/Animation";
 import GoogleIcon from "../assets/Google.png";
 import { auth, provider } from "../firebase";
 
-function login() {
-  const signin = () => {
+const Login = () => {
+  const signIn = () => {
     auth.signInWithPopup(provider).catch(alert);
   };
 
@@ -18,25 +18,36 @@ function login() {
         <Heading>Next Chat</Heading>
         <Logo src={require("../assets/Logo.gif")} />
         <Animation />
-        <LoginCard onClick={signin}>
+        <LoginCard onClick={signIn}>
           <Google src={GoogleIcon} />
           <Text>Login with Google</Text>
         </LoginCard>
+        <MeetCard
+          target="_blank"
+          onClick={() =>
+            window.open("https://shuhaib-ahamed.web.app/", "_blank")
+          }
+        >
+          <Text>Meet the Developer</Text>
+        </MeetCard>
         <Description>
           <DescriptionHeading>Welcome to NextChat</DescriptionHeading>
-          <P>Lorem ipsum Lorem ipsum dolor sit amet, consectetur Lorem ipsum</P>
+          <P>
+            Real time chat application designed and built with Next Js (SSR),
+            styled-components, online status and one to one chat functionality.
+          </P>
         </Description>
       </LoginContainer>
     </Container>
   );
-}
+};
 
-export default login;
+export default Login;
 
 const P = styled.p`
   font-size: 16px;
   color: #b4adad;
-  width: 70%;
+  width: 90%;
 `;
 
 const DescriptionHeading = styled.h2`
@@ -47,12 +58,12 @@ const DescriptionHeading = styled.h2`
 const Description = styled.div`
   border-radius: 5px;
   display: grid;
-  place-items: center;
-  padding: 20px 40px;
+  place-items: left;
+  padding: 10px 40px;
   top: 38%;
-  left: 58%;
+  left: 45%;
   position: absolute;
-  width: 30%;
+  width: 35%;
   background-image: linear-gradient(to right, #3a7ebe39, #150c2e6f);
   height: 300px;
 `;
@@ -89,7 +100,25 @@ const LoginCard = styled.div`
   display: flex;
   position: absolute;
   top: 25%;
-  right: 21%;
+  right: 35%;
+  width: 400px;
+  height: 70px;
+  border: 1px solid #91919150;
+  border-radius: 50px;
+  :hover {
+    border: 1px solid #ffffff60;
+  }
+`;
+
+const MeetCard = styled.div`
+  cursor: pointer;
+  padding: 0 20px;
+  align-items: center;
+  justify-content: space-around;
+  display: flex;
+  position: absolute;
+  top: 25%;
+  right: 10%;
   width: 400px;
   height: 70px;
   border: 1px solid #91919150;

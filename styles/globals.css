@@ -22,3 +22,7 @@ a {
   color: rgba(255, 255, 255, 0.74);
   font-size: 28px !important;
 }
+
+:root {
+  --thumbBG: #91919150;
+}
