@@ -2,7 +2,6 @@ import styled from "styled-components";
 import Head from "next/head";
 import Animation from "../companants/Animation";
 import GoogleIcon from "../assets/Google.png";
-import BubbleChartRoundedIcon from "@material-ui/icons/BubbleChartRounded";
 import { auth, provider } from "../firebase";
 
 function login() {

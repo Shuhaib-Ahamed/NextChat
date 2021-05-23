@@ -9,21 +9,19 @@ import { useAuthState } from "react-firebase-hooks/auth";
 function HeaderTop() {
   const [user] = useAuthState(auth);
   return (
-    <Container>
-      <Header>
-        <HeaderRight>
-          <Logo />
-          <h2>NextChat</h2>
-        </HeaderRight>
-        <IconsContainer>
-          <Search />
-          <IconButton>
-            <NotificationsRoundedIcon />
-          </IconButton>
-          <UserAvatar src={user.photoURL} onClick={() => auth.signOut()} />
-        </IconsContainer>
-      </Header>
-    </Container>
+    <Header>
+      <HeaderRight>
+        <Logo />
+        <h2>NextChat</h2>
+      </HeaderRight>
+      <IconsContainer>
+        <Search />
+        <IconButton>
+          <NotificationsRoundedIcon />
+        </IconButton>
+        <UserAvatar src={user.photoURL} onClick={() => auth.signOut()} />
+      </IconsContainer>
+    </Header>
   );
 }
 
@@ -45,7 +43,6 @@ const Logo = styled(BubbleChartRoundedIcon)`
   }
 `;
 
-const Container = styled.div``;
 
 const Header = styled.div`
   z-index: 99;
@@ -56,7 +53,7 @@ const Header = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 15px;
-  height: 110px;
+  height: 12vh;
   border-bottom: 1px solid #91919150;
 `;
 

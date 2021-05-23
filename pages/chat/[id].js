@@ -1,5 +1,4 @@
 import Head from "next/head";
-import styled from "styled-components";
 import ChatSidebar from "../../companants/ChatSidebar";
 import Leftbar from "../../companants/Leftbar";
 import getRecipientEmail from "../../utils/getRecipientEmail";
@@ -36,32 +35,29 @@ function Chat({ chat, messages }) {
 export default Chat;
 
 export async function getServerSideProps(context) {
-  const ref = db.collection("chats").doc(context.query.id);
-  const messagesRef = await ref
-    .collection("messages")
-    .orderBy("timestamp", "asc")
-    .get();
-
-  const messages = messagesRef.docs
-    .map((doc) => ({
+  const ref = db.collection("chats").doc(context.query.id)
+  
+  // Prepare the messages on the server
+  const messagesRes = await ref.collection('messages').orderBy('timestamp', 'asc').get()
+  const messages = messagesRes.docs.map(doc => ({
       id: doc.id,
-      ...doc.data(),
-    }))
-    .map((messages) => ({
+      ...doc.data()
+  })).map(messages => ({
       ...messages,
-      timestamp: messages.timestamp.toDate().getTime(),
-    }));
+      timestamp: messages.timestamp.toDate().getTime()
+  }))
 
-  //Preaparing the chats
-  const chatRef = await ref.get();
+  // Prepare the chats
+  const chatRes = await ref.get()
   const chat = {
-    id: chatRef.id,
-    ...chatRef.data(),
-  };
+      id: chatRes.id,
+      ...chatRes.data()
+  }
+
   return {
-    props: {
-      messages: JSON.stringify(messages),
-      chat: chat,
-    },
+      props: {
+          messages: JSON.stringify(messages),
+          chat: chat,
+      },
   };
 }

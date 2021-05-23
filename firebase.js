@@ -1,14 +1,15 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 import firebase from "firebase";
 
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBr1cy9nozrI7YIiRI3fL1T84AMo3nUh-Y",
-  authDomain: "nextchat-c97a7.firebaseapp.com",
-  projectId: "nextchat-c97a7",
-  storageBucket: "nextchat-c97a7.appspot.com",
-  messagingSenderId: "566807054781",
-  appId: "1:566807054781:web:133169b0c40cbcfda86ad4",
-  measurementId: "G-2FF4RLBM72",
+  apiKey: "AIzaSyAG2r2ist_wuyR61ZJESaQ1yNnWW3BwXCs",
+  authDomain: "nextapp-40cca.firebaseapp.com",
+  projectId: "nextapp-40cca",
+  storageBucket: "nextapp-40cca.appspot.com",
+  messagingSenderId: "1048139596175",
+  appId: "1:1048139596175:web:aad49305c1cd83de3acbfa",
+  measurementId: "G-ZCMQQHWDZM",
 };
 
 const app = !firebase.apps.length

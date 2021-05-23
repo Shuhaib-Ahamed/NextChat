@@ -34,6 +34,8 @@ function ChatSidebar() {
     }
   };
 
+  // !! converts result to boolean
+  // ?  can be undefined
   const chatAlreadyExists = (recipientEmail) =>
     !!chatSnapshot?.docs.find(
       (chat) =>
@@ -54,6 +56,7 @@ function ChatSidebar() {
         </SearchContainer>
       </Header>
       <ChatScrollContainer>
+        {/** List of chats */}
         {chatSnapshot?.docs.map((chat) => (
           <Chat key={chat.id} id={chat.id} users={chat.data().users} />
         ))}
@@ -70,15 +73,19 @@ const ChatScrollContainer = styled.div`
   width: 100%;
   gap: 15px;
   height: 90%;
-  padding-top: 17px;
-  overflow-y: auto;
+  overflow-y: scroll;
+  ::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
 `;
 
 const Container = styled.div`
   border-right: 1px solid #91919150;
-  height: 100%;
+  height: 88vh;
   padding: 20px 50px;
-  width: 30%;
+  min-width: 30%;
 `;
 
 const SidebarButton = styled(Button)`
@@ -98,13 +105,13 @@ const SearchContainer = styled.div`
 `;
 
 const Header = styled.div`
-  padding-top: 20px;
   width: 100%;
   z-index: 99;
-  height: 10%;
+  height: 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 10%;
 `;
 
 const AddIcon = styled(AddRoundedIcon)`
