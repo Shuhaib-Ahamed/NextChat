@@ -25,7 +25,7 @@ const Login = () => {
         <MeetCard
           target="_blank"
           onClick={() =>
-            window.open("https://shuhaib-ahamed.web.app/", "_blank")
+            window.open("https://www.shuhaibahamed.space", "_blank")
           }
         >
           <Text>Meet the Developer</Text>
