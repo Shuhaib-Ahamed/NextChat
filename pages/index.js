@@ -6,12 +6,6 @@ import styled from "styled-components";
 import IntroContainer from "../components/IntroContainer";
 
 export default function Home() {
-  function toggleZoomScreen() {
-    document.body.style.zoom = "80%";
-  }
-
-  toggleZoomScreen();
-
   return (
     <Container>
       <Header title={"Next Chat"}></Header>
